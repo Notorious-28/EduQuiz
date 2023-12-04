@@ -161,3 +161,37 @@ function showResultBox () {
 
     }, speed);
 }
+
+// Update the quit button event listener
+const quitBtn = document.querySelector('.quit-btn');
+quitBtn.onclick = quitQuiz;
+
+// Function to handle quit button click event
+function quitQuiz() {
+    const confirmQuit = confirm("Are you sure you want to quit the quiz?");
+    if (confirmQuit) {
+        // Redirect to the home page or perform any other action
+        redirectToHome();
+    }
+}
+
+// Modify the goHomeBtn click event to use the redirectToHome function
+goHomeBtn.onclick = redirectToHome;
+
+// Function to redirect to the home page
+function redirectToHome() {
+    quizSection.classList.remove('active');
+    nextBtn.classList.remove('active');
+    resultBox.classList.remove('active');
+
+    questionCount = 0;
+    questionNumb = 1;
+    userScore = 0;
+    showQuestions(questionCount);
+    questionCounter(questionNumb);
+
+    headerScore();
+
+    // Add the redirection logic to the home page
+    window.location.href = 'file:///D:/TheNotorious/Documents/CC106/Software%20Application%20Project/index.html'; // Replace 'index.html' with the actual home page URL
+}
